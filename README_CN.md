@@ -1,24 +1,21 @@
-# TcpSender
+# Tcp Sender
 
-[中文说明](README_CN.md)
+[English](README.md)
 
-[![Latest Version](https://img.shields.io/packagist/v/friendsofhyperf/tcp-sender.svg?style=flat-square)](https://packagist.org/packages/friendsofhyperf/tcp-sender)
-[![Total Downloads](https://img.shields.io/packagist/dt/friendsofhyperf/tcp-sender.svg?style=flat-square)](https://packagist.org/packages/friendsofhyperf/tcp-sender)
-[![GitHub license](https://img.shields.io/github/license/friendsofhyperf/tcp-sender)](https://github.com/friendsofhyperf/tcp-sender)
+## 简介
 
-Another TcpSender component for Hyperf.
+`friendsofhyperf/tcp-sender` 是一个类似 `hyperf/websocket-server` 的 TCP 服务组件，可以用于向指定的 fd 发送消息。
+无需额外关注底层的实现，只需关注业务逻辑即可。
 
-## Installation
-
-- Installation
+## 安装
 
 ```shell
 composer require friendsofhyperf/tcp-sender
 ```
 
-## Usage
+## 使用
 
-### config/autoload/servers.php
+### 配置 config/autoload/servers.php
 
 ```php
 'servers' => [
@@ -41,9 +38,7 @@ composer require friendsofhyperf/tcp-sender
     ],
 ```
 
-### 多进程模型
-
-#### TcpServer
+### 异步风格
 
 ```php
 <?php
@@ -84,9 +79,7 @@ class TcpServer implements OnCloseInterface,OnReceiveInterface
 }
 ```
 
-### 协程风格服务 单进程模型
-
-#### TcpServer
+### 协程风格
 
 ```php
 namespace App;
@@ -124,7 +117,7 @@ class TcpServer implements OnReceiveInterface
 }
 ```
 
-## YourService or YourController
+## 在控制器中使用
 
 ```php
 <?php
@@ -156,12 +149,3 @@ class IndexController extends AbstractController
 }
 
 ```
-
-## Contact
-
-- [Twitter](https://twitter.com/huangdijia)
-- [Gmail](mailto:huangdijia@gmail.com)
-
-## License
-
-[MIT](LICENSE)
